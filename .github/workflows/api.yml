@@ -78,4 +78,4 @@ jobs:
     - uses: azure/webapps-deploy@v2
       with:
         app-name: 'wvv5ra6sjlgc6-api'
-        images: {your_registry_name}.azurecr.io/techexcel/csapi:${{github.run_number}}
+        images: wvv5ra6sjlgc6cosureg.azurecr.io/techexcel/csapi:${{github.run_number}}
