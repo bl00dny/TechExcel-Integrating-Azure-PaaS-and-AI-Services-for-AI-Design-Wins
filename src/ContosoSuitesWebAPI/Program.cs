@@ -39,8 +39,8 @@ builder.Services.AddSingleton<CosmosClient>((_) =>
 
 builder.Services.AddSingleton<AzureOpenAIClient>((_) =>
 {
-    var endpoint = new Uri(builder.Configuration["AzureOpenAI__Endpoint"]!);
-    var credentials = new AzureKeyCredential(builder.Configuration["AzureOpenAI__ApiKey"]!);
+    var endpoint = new Uri(builder.Configuration["AzureOpenAI:Endpoint"]!);
+    var credentials = new AzureKeyCredential(builder.Configuration["AzureOpenAI:ApiKey"]!);
 
     var client = new AzureOpenAIClient(endpoint, credentials);
     return client;
@@ -50,9 +50,9 @@ builder.Services.AddSingleton<Kernel>((_) =>
 {
     IKernelBuilder kernelBuilder = Kernel.CreateBuilder();
     kernelBuilder.AddAzureOpenAIChatCompletion(
-        deploymentName: builder.Configuration["AzureOpenAI__DeploymentName"]!,
-        endpoint: builder.Configuration["AzureOpenAI__Endpoint"]!,
-        apiKey: builder.Configuration["AzureOpenAI__ApiKey"]!
+        deploymentName: builder.Configuration["AzureOpenAI:DeploymentName"]!,
+        endpoint: builder.Configuration["AzureOpenAI:Endpoint"]!,
+        apiKey: builder.Configuration["AzureOpenAI:ApiKey"]!
     );
     kernelBuilder.Plugins.AddFromType<DatabaseService>();
     return kernelBuilder.Build();
