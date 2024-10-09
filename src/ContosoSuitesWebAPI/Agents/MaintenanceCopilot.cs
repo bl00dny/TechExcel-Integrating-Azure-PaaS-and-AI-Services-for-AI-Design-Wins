@@ -16,9 +16,9 @@ namespace ContosoSuitesWebAPI.Agents
 
         public async Task<string> Chat(string userPrompt)
         {
-            Exercise 5 Task 2 TODO #4: Comment out or delete the throw exception line below,
-            and then uncomment the remaining code in the function.
-            throw new NotImplementedException();
+            //Exercise 5 Task 2 TODO #4: Comment out or delete the throw exception line below,
+            //and then uncomment the remaining code in the function.
+            // throw new NotImplementedException();
 
             var chatCompletionService = _kernel.GetRequiredService<IChatCompletionService>();
 
