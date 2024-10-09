@@ -61,11 +61,11 @@ builder.Services.AddSingleton<Kernel>((_) =>
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
+// if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
-}
+// }
 
 app.UseHttpsRedirection();
 
@@ -127,7 +127,7 @@ app.MapPost("/VectorSearch", async ([FromBody] float[] queryVector, [FromService
 {
     // Exercise 3 Task 3 TODO #3: Insert code to call the ExecuteVectorSearch function on the Vectorization Service. Don't forget to remove the NotImplementedException.
     var results = await vectorizationService.ExecuteVectorSearch(queryVector, max_results, minimum_similarity_score);
-    return results;
+return results;
 })
     .WithName("VectorSearch")
     .WithOpenApi();
